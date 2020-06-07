@@ -14,7 +14,7 @@
 
 <BorderPane prefHeight="473.0" prefWidth="339.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.food.FXMLController">
    <top>
-      <Label text="Esame 12/07/2019 - Turno A" BorderPane.alignment="CENTER">
+      <Label text="Esame 12/07/2019 - Turno B" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" />
          </BorderPane.margin>
@@ -53,7 +53,7 @@
                         <Insets right="20.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="btnCalorie" mnemonicParsing="false" onAction="#doCalorie" prefWidth="80.0" text="Calorie" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button fx:id="btnGrassi" mnemonicParsing="false" onAction="#doGrassi" prefWidth="80.0" text="Grassi" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="20.0" />
                      </GridPane.margin>

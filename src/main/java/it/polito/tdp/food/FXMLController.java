@@ -11,13 +11,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-//controller turno A --> switchare al branch master_turnoB per turno B
+//controller turno B --> switchare al branch master_turnoA per turno A
 
 public class FXMLController {
 	
 	private Model model;
 
-    @FXML
+	@FXML
     private ResourceBundle resources;
 
     @FXML
@@ -33,7 +33,7 @@ public class FXMLController {
     private Button btnAnalisi;
 
     @FXML
-    private Button btnCalorie;
+    private Button btnGrassi;
 
     @FXML
     private Button btnSimula;
@@ -45,12 +45,12 @@ public class FXMLController {
     private TextArea txtResult;
 
     @FXML
-    void doCalorie(ActionEvent event) {
+    void doCreaGrafo(ActionEvent event) {
 
     }
 
     @FXML
-    void doCreaGrafo(ActionEvent event) {
+    void doGrassi(ActionEvent event) {
 
     }
 
@@ -64,7 +64,7 @@ public class FXMLController {
         assert txtPorzioni != null : "fx:id=\"txtPorzioni\" was not injected: check your FXML file 'Food.fxml'.";
         assert txtK != null : "fx:id=\"txtK\" was not injected: check your FXML file 'Food.fxml'.";
         assert btnAnalisi != null : "fx:id=\"btnAnalisi\" was not injected: check your FXML file 'Food.fxml'.";
-        assert btnCalorie != null : "fx:id=\"btnCalorie\" was not injected: check your FXML file 'Food.fxml'.";
+        assert btnGrassi != null : "fx:id=\"btnGrassi\" was not injected: check your FXML file 'Food.fxml'.";
         assert btnSimula != null : "fx:id=\"btnSimula\" was not injected: check your FXML file 'Food.fxml'.";
         assert boxFood != null : "fx:id=\"boxFood\" was not injected: check your FXML file 'Food.fxml'.";
         assert txtResult != null : "fx:id=\"txtResult\" was not injected: check your FXML file 'Food.fxml'.";
