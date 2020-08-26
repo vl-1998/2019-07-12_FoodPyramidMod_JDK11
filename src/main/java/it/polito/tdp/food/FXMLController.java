@@ -1,8 +1,11 @@
 package it.polito.tdp.food;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import it.polito.tdp.food.model.CalorieCongiunte;
+import it.polito.tdp.food.model.Food;
 import it.polito.tdp.food.model.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,23 +42,81 @@ public class FXMLController {
     private Button btnSimula;
 
     @FXML
-    private ComboBox<?> boxFood;
+    private ComboBox<Food> boxFood;
 
     @FXML
     private TextArea txtResult;
 
     @FXML
     void doCalorie(ActionEvent event) {
+    	txtResult.clear();
+    	
+    	Food f = this.boxFood.getValue();
+    	
+    	if(f==null) {
+    		txtResult.appendText("Scegliere un cibo.");
+    	}
+    	List<CalorieCongiunte> res = this.model.getCalorie(f);
+    	
+    	int i = 0;
+    	
+    	for(i=0; i<=4 && i < res.size(); i++) {
+    		txtResult.appendText(res.get(i).toString()+"\n");
+    	}
 
     }
 
     @FXML
     void doCreaGrafo(ActionEvent event) {
-
+    	txtResult.clear();
+    	Integer NP;
+    	String nPorzioni = txtPorzioni.getText();
+    	
+    	if(nPorzioni == null) {
+    		txtResult.appendText("Inserire il numero di porzioni.");
+    	}
+    	
+    	try {
+    		NP = Integer.parseInt(nPorzioni);
+    		
+    	}catch (IllegalArgumentException e) {
+        	txtResult.appendText("Inserire valore numerico!");
+        	return;
+        }
+    	this.model.creaGrafo(NP);
+    	this.boxFood.getItems().clear();
+    	this.boxFood.getItems().addAll(this.model.getVertex());
+    	txtResult.appendText("Grafo creato! \n");
+    	txtResult.appendText("#Vertici = "+this.model.getVertex().size()+" #Archi = "+this.model.getEdge().size());
+    	
     }
 
     @FXML
     void doSimula(ActionEvent event) {
+    	txtResult.clear();
+
+    	Food f = this.boxFood.getValue();
+    	
+    	if(f==null) {
+    		txtResult.appendText("Scegliere un cibo.");
+    	}
+    	
+    	Integer K;
+    	String nStazioni = txtK.getText();
+    	
+    	if(nStazioni == null) {
+    		txtResult.appendText("Inserire il numero di stazioni.");
+    	}
+    	
+    	try {
+    		K = Integer.parseInt(nStazioni);
+    		
+    	}catch (IllegalArgumentException e) {
+        	txtResult.appendText("Inserire valore numerico!");
+        	return;
+        }
+    	
+    	txtResult.appendText(this.model.simula(f, K));
 
     }
 
